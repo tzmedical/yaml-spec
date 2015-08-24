@@ -83,7 +83,8 @@
                     <tbody>
                       <tr class="test" ng-repeat="(testKey, test) in specification.tests">
                         <td>
-                          <span class="id">{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}.{{testKey + 1}}</span>
+                          <span class="id" ng-if="test.id">{{test.id}}</span>
+                          <span class="id" ng-if="!test.id">{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}.{{testKey + 1}}</span>
                         </td>
                         <td>
                           {{test.criteria}}
