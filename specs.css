@@ -1,0 +1,94 @@
+.input {
+    float:left;
+    width: 30%;
+}
+
+.output {
+    float:right;
+    width: 70%;
+}
+.category-container {
+}
+
+.category {
+    display: block;
+    font-size: xx-large;
+    margin-left: 10px;
+}
+
+.regulatory {
+    font-size: x-large;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.regulatory-text {
+    font-size: large;
+}
+
+.subcategory-container {
+    display: block;
+    margin-left: 20px;
+}
+
+.subcategory {
+    font-size: x-large;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.requirement-container {
+    display: block;
+    margin-left: 40px;
+}
+
+.requirement {
+    font-size: large;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.specification-container {
+    display: block;
+    margin-left: 60px;
+}
+
+.specification {
+    display: block;
+    font-size: larger;
+}
+
+.unit {
+    font-weight: bold;
+    display: block;
+}
+
+.unit-text {
+    font-weight: normal;
+}
+
+.test-container {
+    display: block;
+    margin-left: 60px;
+}
+
+.test {
+}
+
+.id {
+    font-weight: bold;
+}
+
+.collapse {
+    overflow: hidden;
+}
+
+.toc-container li {
+    list-style-type: none;
+}
+
+.toc-container ul {
+    margin-bottom:0px;
+    padding-bottom:0px;
+}
