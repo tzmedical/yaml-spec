@@ -29,14 +29,14 @@
       <span class="collapse in toc-container">
         <ul class="" ng-repeat="(catKey, category) in spec.categories">
           <li class="">
-            <a href="#{{category.cat}}">
-              {{category.cat}}
+            <a href="#{{category.name}}">
+              {{category.name}}
             </a>
           </li>
-          <ul class="" ng-repeat="(subcatKey, subcat) in category.subcats">
+          <ul class="" ng-repeat="(subcatKey, subcategory) in category.subcategories">
             <li class="">
-              <a href="#{{category.cat}}-{{subcat.cat}}">
-                {{subcat.cat}}
+              <a href="#{{category.name}}-{{subcategory.name}}">
+                {{subcategory.name}}
               </a>
             </li>
           </ul>
@@ -45,29 +45,29 @@
       <hr />
       <span class="category-container collapse in" ng-repeat="(catKey, category) in spec.categories">
         <span class="category">
-          <a name="{{category.cat}}"></a>
-          <span class="id">{{(catKey + 1)}}.</span> {{category.cat}}
+          <a name="{{category.name}}"></a>
+          <span class="id">{{(catKey + 1)}}.</span> {{category.name}}
         </span>
-        <span class="regulatory text-muted" ng-if="category.regs">
+        <span class="regulatory text-muted" ng-if="category.regulatory">
           Related Regulatory:
-          <span class="regulatory-text">{{category.regs.join(',')}}</span>
+          <span class="regulatory-text">{{category.regulatory.join(',')}}</span>
         </span>
-        <span class="subcategory-container collapse in" ng-repeat="(subcatKey, subcat) in category.subcats">
+        <span class="subcategory-container collapse in" ng-repeat="(subcatKey, subcategory) in category.subcategories">
           <span class="subcategory">
-            <a name="{{category.cat}}-{{subcat.cat}}"> </a>
-            <span class="id">{{(catKey + 1)}}.{{subcatKey + 1}}</span>. {{subcat.cat}}
+            <a name="{{category.name}}-{{subcategory.name}}"> </a>
+            <span class="id">{{(catKey + 1)}}.{{subcatKey + 1}}</span>. {{subcategory.name}}
           </span>
-          <span class="requirement-container collapse in" ng-repeat="(reqKey, req) in subcat.reqs">
+          <span class="requirement-container collapse in" ng-repeat="(reqKey, requirement) in subcategory.requirements">
             <fieldset>
               <span class="requirement text-primary" >
-                <span class="id">{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}</span>. {{req.req}}
+                <span class="id">{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}</span>. {{requirement.description}}
               </span>
-              <span class="specification-container collapse in" ng-repeat="(specKey, spec) in req.specs">
+              <span class="specification-container collapse in" ng-repeat="(specKey, specification) in requirement.specifications">
                 <span class="specification">
-                  <span class="id">{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}</span>. {{spec.spec}}
+                  <span class="id">{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}</span>. {{specification.description}}
                 </span>
                 <span class="unit text-muted">
-                  Responsible Software Unit: <span class="unit-text">{{spec.unit}}</span>
+                  Responsible Software Unit: <span class="unit-text">{{specification.unit}}</span>
                 </span>
                 <span class="test-container collapse in">
                   <table class="table table-striped table-bordered table-hover">
@@ -81,12 +81,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="test" ng-repeat="(testKey, test) in spec.tests">
+                      <tr class="test" ng-repeat="(testKey, test) in specification.tests">
                         <td>
                           <span class="id">{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}.{{testKey + 1}}</span>
                         </td>
                         <td>
-                          {{test.test}}
+                          {{test.criteria}}
                         </td>
                         <td>
                           {{test.method}}
