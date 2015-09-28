@@ -15,29 +15,22 @@
     <textarea id="input" ng-model="yaml" ng-change="update()" style="height: 100%; width: 100%; top:0; bottom:0"></textarea>
   </div>
   <div class="output">
-    ID| Category| Regulatory| Subcategory| Requirement| Specification| Unit| Criteria| Method| Result| I/O? <br />
+    "ID", Category, Regulatory, Subcategory, Requirement, Specification, Software Unit, Criteria, Method, Result, I/O? <br />
     <span ng-repeat="(catKey, category) in spec.categories">
-      {{(catKey + 1)}}|
-      {{category.name}}|
-      {{category.regulatory.join(',')}}<br />
+      "{{(catKey + 1)}}","{{category.name}}","{{category.regulatory.join(',')}}"<br />
       <span ng-repeat="(subcatKey, subcategory) in category.subcategories">
-        {{(catKey + 1)}}.{{subcatKey + 1}}|
-        ||{{subcategory.name}}<br />
+        "{{(catKey + 1)}}.{{subcatKey + 1}}",
+        ,,"{{subcategory.name}}"<br />
         <span ng-repeat="(reqKey, requirement) in subcategory.requirements">
-          {{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}|
-          |||{{requirement.description}}<br />
+          "{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}",
+          ,,,"{{requirement.description}}"<br />
           <span ng-repeat="(specKey, specification) in requirement.specifications">
-            {{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}|
-            ||||{{specification.description}}<br />
+            "{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}",
+            ,,,,"{{specification.description}}"<br />
             <span ng-repeat="(testKey, test) in specification.tests">
-              <span class="id" ng-if="test.id">{{test.id}}|</span>
-              <span class="id" ng-if="!test.id">{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}.{{testKey + 1}}|</span>
-              |||||
-              {{test.unit}}|
-              {{test.criteria}}|
-              {{test.method}}|
-              {{test.result}}|
-              Yes<br />
+              <span class="id" ng-if="test.id">"{{test.id}}",</span>
+              <span class="id" ng-if="!test.id">"{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}.{{testKey + 1}}",</span>
+              ,,,,,"{{test.unit}}","{{test.criteria}}","{{test.method}}","{{test.result}}","Yes"<br />
             </span>
           </span>
         </span>
