@@ -1,0 +1,35 @@
+<html ng-app="specsApp">
+<head>
+  <!-- esprima required only for !!js/function -->
+  <!-- <script src="esprima.js"></script> -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+  <script src="js-yaml.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap.min.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="specs.css">
+</head>
+<body ng-controller="SpecsCtrl">
+  <div class="input">
+    <textarea id="input" ng-model="yaml" ng-change="update()" style="height: 100%; width: 100%; top:0; bottom:0"></textarea>
+  </div>
+  <div class="output">
+    Test ID, Software Unit, Criteria, Method, Result, I/O? <br />
+    <span ng-repeat="(catKey, category) in spec.categories">
+      <span ng-repeat="(subcatKey, subcategory) in category.subcategories">
+        <span ng-repeat="(reqKey, requirement) in subcategory.requirements">
+          <span ng-repeat="(specKey, specification) in requirement.specifications">
+            <span ng-repeat="(testKey, test) in specification.tests">
+              <span class="id" ng-if="test.id">"{{test.id}}",</span>
+              <span class="id" ng-if="!test.id">"{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}.{{testKey + 1}}"
+                ,</span>"{{test.unit}}","{{test.criteria}}","{{test.method}}","{{test.result}}","Yes"<br />
+            </span>
+          </span>
+        </span>
+      </span>
+    </span>
+  </div>
+  <script src="specs.js"></script>
+</body>
+</html>
