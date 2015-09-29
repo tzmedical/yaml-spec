@@ -15,7 +15,7 @@
     <textarea id="input" ng-model="yaml" ng-change="update()" style="height: 100%; width: 100%; top:0; bottom:0"></textarea>
   </div>
   <div class="output">
-    Software Unit, Criteria, Method, Result, I/O? <br />
+    Test ID, Software Unit, Criteria, Method, Result, I/O? <br />
     <span ng-repeat="(catKey, category) in spec.categories">
       <span ng-repeat="(subcatKey, subcategory) in category.subcategories">
         <span ng-repeat="(reqKey, requirement) in subcategory.requirements">
