@@ -22,8 +22,8 @@
           <span ng-repeat="(specKey, specification) in requirement.specifications">
             <span ng-repeat="(testKey, test) in specification.tests">
               <span class="id" ng-if="test.id">"{{test.id}}",</span>
-              <span class="id" ng-if="!test.id">"{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}.{{testKey + 1}}",</span>
-              "{{test.unit}}","{{test.criteria}}","{{test.method}}","{{test.result}}","Yes"<br />
+              <span class="id" ng-if="!test.id">"{{(catKey + 1)}}.{{subcatKey + 1}}.{{reqKey + 1}}.{{specKey + 1}}.{{testKey + 1}}"
+                ,</span>"{{test.unit}}","{{test.criteria}}","{{test.method}}","{{test.result}}","Yes"<br />
             </span>
           </span>
         </span>
